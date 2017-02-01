@@ -5,7 +5,7 @@ using std::cout;
 int main()
 {
 	/* print enthusiastic message: */
-	cout << "Hello, My Pubby Bunny! c: \n";
+	cout << "Hello, Life is Hard! c: \n";
 	return 0;
 }
 
