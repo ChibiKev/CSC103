@@ -1,0 +1,2 @@
+g++ datatypes-variables.cpp && ./a.out 
+g++ -g -o average average.cpp 
