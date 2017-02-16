@@ -1,0 +1,11 @@
+make
+./collatz 
+make
+./collatz 
+echo {1..500} | ./collatz 
+echo {1..500} | ./collatz | less
+echo {1..500} | ./collatz | awk '{print $4}' | less
+echo {1..500} | ./collatz | awk '{print $4}' | sort -rn | less
+echo {1..500} | ./collatz | awk '{print $4}' | sort -rn | head -1
+echo {1..500} | ./collatz | awk '{print $4 " : " $1}' | sort -rn | head -1
+echo {1..500} | ./collatz | less

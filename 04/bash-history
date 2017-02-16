@@ -1,0 +1,8 @@
+vim moreloops.cpp 
+make
+./moreloops 
+echo "4 2 5 6 7 1 9 3" | ./moreloops 
+echo "hahahah" | ./moreloops 
+make
+echo "18 12" | ./moreloops 
+vim moreloops.cpp 
