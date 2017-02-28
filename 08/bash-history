@@ -1,0 +1,6 @@
+make
+echo {10..1}
+echo {10..1} | ./sort 
+echo 3 7 5 11 2 | ./sort 
+vim sort.cpp 
+make
