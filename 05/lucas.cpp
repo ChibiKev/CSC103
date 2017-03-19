@@ -17,7 +17,41 @@ int main()
 	 * sure your code works for small values of n (0 and 1 in particular).
 	 * */
 
+	int n,i=1;
+	cin >> n;
+	int oneb4=1, twob4=0, current=1;
+while(i<n){
+	i++;
+	twob4=oneb4;
+	oneb4=current;
+	current=oneb4-twob4;
+}
+cout<<current<<endl;
 	return 0;
 }
 
 // vim:foldlevel=1
+/*int p=5,q=2,n=3,i=2;
+int oneb4=1,twob4=0,current=p;
+while (i>n){
+	i++;
+	twob4=oneb4;
+	oneb4=current;
+	current=p*oneb4+q*twob4*i;}
+	cout <<current <<endl;
+	return 0;
+}
+*/
+/*int n;
+cin >> n;
+int onebefore=2,twobefore=3, current=14;
+int i=2;
+while (i<n) {
+i++;
+twobefore=onebefore;
+onebefore=current;
+current=5*onebefore+2*twobefore-i;
+}
+cout << current << endl;
+return 0;
+}*/

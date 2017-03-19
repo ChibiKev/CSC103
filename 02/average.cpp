@@ -5,17 +5,33 @@ using std::cin;
 
 int main()
 {
-	int a,b,c;
+	int a,b;
+	cout << "Input first number\n";
 	cin >> a; /* read an integer into a. */
-	cin >> b;
-	cin >> c;
-
+	b=a;
+	cout << "Input second number\n";
+	cin >> a;
+	b+=a;
+	cout << "Input third number \n";
+	cin >> a;
+	b+=a;
+	cout << "Input fourth number \n";
+	cin >> a;
+	b+=a;
+	cout << "Input fifth number \n";
+	cin >> a;
+	b+=a;
 	/* TODO: finish this program (it should just print the average). */
 	/* TODO: test this program.  Try typing the input manually, but also
 	 * try this:
 	 * $ echo 2 3 5 | ./average */
 	/* TODO: extend this program to take the average of 5 integers,
 	 * and do so *ONLY USING TWO VARIABLES TOTAL*. */
+
+	cout << "Your average is " << b/5 << "\n";
+
+
+
 	return 0;
 }
 

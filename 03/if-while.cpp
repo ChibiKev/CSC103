@@ -16,7 +16,7 @@ int main()
 	/* IDEA: execute a piece of code 0 or 1 times, conditioned upon a
 	 * boolean expression.
 	 * */
-	#if 1 /* NOTE: replace 1 with 0 to comment everything until
+	#if 0 /* NOTE: replace 1 with 0 to comment everything until
 			 the endif below */
 	cout << "Did you remember your umbrella? ";
 	string answer; /* NOTE: string is for sequences of characters.
@@ -81,6 +81,7 @@ int main()
 	/* now something actually useful. */
 	/* quick warm up: print all integers squares less than 100.
 	 * e.g., 0,1,4,9,16,25... */
+	#if 0
 	int i = 0; /* Remember: 1 equals sign means "assignment".
 	                        2 equals signs is the boolean comparison */
 	while (i < 10) {
@@ -88,7 +89,17 @@ int main()
 		i = i+1; /* shorthand: i++ */
 	}
 	cout << "i == " << i << "\n"; /* prints 10, not 9! */
-
+#endif
+ #if 0
+ int x,n;
+ cin >> x;
+ n=x;
+ while (cin >> x) {
+	 if (n > x)
+		 n=x;
+ }
+	 cout << "min:" << n << endl;
+#endif
 	/* general form:
 	 * while (<boolean expression>) {
 	 *    statements to do while expression is true...
@@ -105,9 +116,27 @@ int main()
 	 * <hit ctrl-d>
 	 * min == 1
 	 * */
-
-	/* TODO: read integers from stdin, and print their sum.  See above
+#if 0
+int x,n;
+cin >> x;
+n=x;
+while (cin >> x) {
+	n+=x;
+}
+	cout << "sum=" << n << endl;
+#endif
+/* TODO: read integers from stdin, and print their sum.  See above
 	 * for how to read ints from stdin (use a while(cin >> n) thing). */
+int n,x;
+cin >> n;
+x=n;
+int count=0;
+for (cin >> n; n%2==0; count++){
+	n=n/2;
+}
+
+	cout << "2**" << count << "=" << x <<endl;
+	cout << count << endl;
 
 	/* TODO: given an integer n, find exponent of the largest power of two that
 	 * divides n.  Example: if n = r*8 with r odd, then you should output 3
@@ -115,6 +144,7 @@ int main()
 	 * number's factorization into primes.) */
 	/* IDEA: keep on dividing n by two until we can't,
 	 * and keep track of how many times it worked. */
+
 
 	return 0;
 }

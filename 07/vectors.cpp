@@ -14,18 +14,50 @@ using std::vector;
  * for a particular value x, returning true <==> x is found.
  * NOTE: you should think carefully about how to pass the parameters,
  * especially for the vector.  (By value, reference, const reference?) */
-
-int main()
-{
+#if 0
+int f(vector<int> n, int x){
+int find=x;
+	for (size_t i=0; i < n.size()-1; i++){
+		if (find==n[i])
+return true;
+}
+}
+int main(){
+	int y;
+	int x;
+	vector <int> t;
+	cout << "What are you looking for?" << endl;
+	cin  >> x;
+	cout << "what are the values?" << endl;
+	while (cin >> y) {
+		t.push_back(y);
+	}
+	for (size_t i=0; i< t.size()-1; i++){
+	cout << f(t,x) << endl;
+	}
+#endif
 	/* TODO: read list of integers and print in reverse order.  (There
 	 * is a solution outlined in the notes -- use a vector). */
 	/* NOTE: remember that vector itself isn't a datatype.  It is like a
 	 * machine that creates datatypes: */
 	// vector v; /* won't compile -- vector isn't a type */
 
-	#if 0
+#if 0
+int main (){
+	int n;
+	vector <int> v;
+	while (cin>>n){
+	v.push_back(n);
+}
+	for (int i=v.size()-1; i>=0;i--)
+	cout << v[i] << endl;
+#endif
+	#if 1 //work on this
 	/* TODO: figure out what is wrong with this version.  Note that we
 	 * never use push back, but access elements directly. */
+int main(){
+	int s;
+	vector <int> v;
 	int count = 0;
 	while(cin >> s) {
 		v[count] = s;

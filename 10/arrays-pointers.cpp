@@ -4,6 +4,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+void swapd(int* &d1, int* &d2);
 int main() {
 	/* ARRAYS: OVERVIEW
 	 * Arrays in C/C++: kind of like a "dumb" version of std::vector.
@@ -11,6 +12,7 @@ int main() {
 	 * like push_back, etc... */
 
 	/* DECLARATION AND USE */
+#if 1
 	const size_t size = 10;
 	int A[size]; /* A is an array of 10 integers. */
 	for (size_t i = 0; i < size; i++) {
@@ -50,9 +52,10 @@ int main() {
 	 * like this: */
 	p = (int*) 4;
 	/* and then try to write to that memory cell, like this: */
-	*p = 17;
+	 *p = 17;
 	/* TODO: change the above "#if 0" to "#if 1", compile, run, and take
 	 * note of the error.  Sadly, it won't be the last time you see it... */
+
 	#endif
 
 	/* 2. initialization via "address-of"
@@ -97,18 +100,37 @@ int main() {
 		cout << i << "[B] == " << i[B] << endl;
 	}
 
-	return 0;
-	/* TODO: declare another pointer (say p2) to a character, initialize it
+#endif
+/* TODO: declare another pointer (say p2) to a character, initialize it
 	 * just as we did before, and print out (p+i) and then (p2+i) for small
 	 * values of i. Notice that the difference in memory addresses changes. */
-}
-
+#if 1
+char c='a';
+char* p2 = &c;
+	for (size_t i=0; i < 5; i++){
+		cout << i << "==" << (p+i) << "==" << (*p+i) << endl;
+	}
+	for (size_t i=0; i < 5; i++) {
+		cout << i << "==" << (p2+1)  << "==" << *(p2+i) << endl;
+	}
+#endif
 /* TODO: write a function that returns void, and takes two
  * POINTERS to integers, and swaps the contents of those two
  * memory locations.  Note: part of this exercise is understanding
  * what I'm asking for...
  * */
-
+#if 0
+	int n1, n2;
+	cin >> n1;
+	cin >> n2;
+	int* d1;
+	d1= &n1;
+	int* d2;
+	d2 = &n2;
+	cout << "d1=" << d1 << "\td2=" << d2 << endl;
+	swapd(d1,d2);
+	cout << "d1=" << d1 << "\td2=" << d2 <<endl;
+#endif
 /* TODO: if the type of p is int*, can you guess what the
  * type of &p would be? */
 
@@ -121,3 +143,35 @@ int main() {
  * allocate the same, fixed amount of storage.  No vectors.  No additional
  * arrays.  Just a few integers.  Try it!  (Kind of hard though.)
  * */
+ #if 0
+ const int sizek=5;
+ int array[sizek];
+ for (size_t i=0; i < sizek; i++){
+  int p;
+	cin >> p;
+ array[i]=p;
+ }
+ 	int value;
+	cout << "How much do you want it to move by?" << endl;
+	cin >> value;
+	cout << "Each term will be moved over by " << value << endl;
+	int da =value;
+ while (da < sizek) {
+	 cout << array[da] << " ";
+	 da++;
+ }
+ for (size_t i=0; i < value; i++) {
+	 cout << array [i] << " ";
+ }
+ cout << endl;
+
+ void shift (int* A, size_t x, size_t y)
+#endif
+return 0;
+}
+void swapd(int* &d1, int* &d2){
+	int* d3;
+	d3= d1;
+	d1= d2;
+	d2= d3;
+}

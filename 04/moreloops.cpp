@@ -8,6 +8,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 #include <cstdio>
+#include <cmath>
 
 int main()
 {
@@ -55,13 +56,23 @@ int main()
 	 *    variables is preserved at the end of each iteration of the loop.
 	 * 4. Finally, print the results.
 	 * */
-
+#if 0
+int x,count=1,y, average;
+cin >> x;
+y=x;
+while (cin >> x){
+	y+=x; count++;
+}
+average=y/count;
+cout << average << endl;
+#endif
 	/* exercise: brute force gcd.  Compute the greatest common
 	 * divisor of n and k by an exhaustive search.  */
 	/* IDEA: start with the largest possible value that the gcd
 	 * could have, then walk *backwards* until you find the first
 	 * value that divides both inputs. */
 	/* Range of possibilities for a valid answer: {min{a,b}...1} */
+	#if 0
 	int a,b; /* store the input */
 	cin >> a;
 	cin >> b;
@@ -83,23 +94,95 @@ int main()
 		}
 	}
 	return 0;
-
+#endif
 	/* TODO: brute force test for perfect cubes.  Check if
 	 * n = k^3 for some integer k.  */
-
+#if 0
+int n;
+	while(cin >> n){
+	for (int x=n-1; x > 0; x--) {
+		if (n%(x*x*x)==0){
+			cout << n << "=" << x << "^3" << endl;
+			break;
+		}
+	}
+}
+#endif
 	/* TODO: write a loop that prints the sum of the first n odd cubes. */
+#if 0
+int x,y; //x is the input value;y is the cubed variable
+	while(cin >> x){ //endless input
+		int z=0; //z is the sum
+		for(int count=1,max=x;count<=max;count++){ //count goes through every value up until max=input;
+			y=pow(count,3); //equates y to count^3
+				if (y%2!=0){ //if y is odd, returns true
+					z+=y; //adds the odd cubed value into z
+					cout<<"z="<<z-y<<'+'<<cbrt(y)<<"^3"<<endl; //Just testing
+				}
+				else //if y is even
+					max++; //max is increased, since a value has not been input into z during this loop
+		}
+		cout<<"The sum of the first "<<x<<" odd cubes is "<<z<<".\n"; //output value
+		//Based on the output results, all odd numbers will give an odd cubed value
+		//And all even numbers will give an even cubed value
+		//It's probably possible to make the program even shorter using . . .
+		/*
 
+		int x; //x is the input value;
+	while(cin >> x){ //endless input
+		int z=0; //z is the sum
+		for(int count=1,max=x;count<=max;count+2){ //count goes through every odd value up until max;
+					z+=pow(count,3); //adds the odd cubed value into z
+					cout<<"z="<<z-y<<'+'<<cbrt(y)<<"^3"<<endl; //Just testing
+				}
+		}
+		cout<<"The sum of the first "<<x<<" odd cubes is "<<z<<".\n"; //output value
+
+		*/
+}
+#endif
 	/* TODO: write code that gets an integer n from the user and prints out
 	 * the n-th term of the fibonacci sequence. */
+#if 0
+int start=0, x, y=1, count=0, next=0;
+for (cin >> x;x>count;count++){
+	next=start+y;
+	start=y;
+	y=next;
+}
+	cout << start << endl;
 
+#endif
 	/* TODO: a slight generalization of an earlier exercise: for integers
 	 * n and k, determine the largest power of k that divides n. */
+#if 0
+int n;
+cin >> n;
+for (cin >> n)
+
+
+#endif
 
 	/* TODO: write a program that reads (arbitrarily many) integers from
 	 * stdin and outputs the *second* smallest one.  NOTE: you don't need
 	 * to store many numbers (all at once, that is) to do this!  You'll
 	 * only need a few integer variables.  Think about invariants! */
-
+#if 1
+int x,min,secondmin;
+cin >> min;
+cin >> secondmin;
+if (min > secondmin)
+{
+	min=secondmin;
+}
+while (cin >> x){
+	if (min > x){
+		secondmin=min;
+		min=x;
+	}
+	}
+	cout << secondmin << endl;
+#endif
 	return 0;
 }
 

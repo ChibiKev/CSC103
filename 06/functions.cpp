@@ -5,7 +5,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
-
+#if 0
 /* syntax:
  * datatype functionname(parameterlist) { c++ statements...}
  * think of f(x) from your calculus days... remember this notation?
@@ -65,18 +65,118 @@ int main()
 	cout << "y == " << y << "\n";
 	return 0;
 }
-
+#endif
 /* TODO: write a function that takes 3 integers and returns
  * the maximal value */
+ #if 0
+
+ int f(int x, int y, int z) {
+  if (x>y){
+   if (x>z)
+    return x;
+   else if (z>x)
+    return z;
+  }
+  else if (y>x){
+   if (y>z)
+    return y;
+   else if (y<z)
+    return z;
+  }
+  }
+  int main(){
+  int x,y,z;
+   cin >> x;
+  cin >> y;
+  cin >> z;
+   cout << f(x,y,z) <<endl;
+  #endif
 /* TODO: write a function that takes 3 doubles and returns the average value.
  * also write code in main to test it.  */
+ #if 0
+double f(double x, double y, double z){
+return (x+y+z)/3;
+}
+int main(){
+int x,y,z;
+cin >> x;
+cin >> y;
+cin >> z;
+cout << "average= " << f(x,y,z) <<endl;
+ #endif
 /* TODO: write a function that takes two integer parameters and swaps the
  * contents, i.e., if x=2 and y=5, then after calling swap(x,y), y=2 and x=5
  * Also write test code in main! */
+ #if 0
+ int f(int x, int y){
+  x=y;
+  return x;
+ }
+  int s(int x,int y){
+  y=x;
+  return y;
+ }
+ int main(){
+  int x,y;
+  cin >> x;
+  cin >> y;
+  cout << "x" << "=" << f(x,y) << endl;
+  cout << "y" << "=" << s(x,y) << endl;
+ #endif
+
+ #if 1
+ void swap (int &x, int &y){
+  int z=x;
+  x=y;
+  y=z;
+ }
+ int main(){
+  int x,y;
+  cin >> x;
+  cin >> y;
+  swap(x,y);
+  cout << "x is now " << x <<endl;
+  cout << "y is now " << y << endl;
+ #endif
 /* TODO: write an isPrime function that takes an integer and returns a boolean
  * value indicating whether or not it is prime.  */
+#if 0
+bool isPrime(int n){
+ int count=0;
+ for (int x=n-1; x > 1; x--)
+  if (n%x==0){
+  count++;}
+ if (count>0 || n==1)
+ return false;
+ else
+ return true;
+}
+int main(){
+int n;
+ while(cin >> n)
+cout << n << " is " << isPrime(n) << endl;
+#endif
 /* TODO: write a function that takes an integer n and returns the
  * nth term in the Fibonacci sequence. */
+#if 0
+int f(int n){
+int start=0;
+int y=1;
+int count=0;
+int next=0;
+for (cin >> n;n>count;count++){
+	next=start+y;
+	start=y;
+	y=next;
+}
+return start;
+}
+int main(){
+ int n;
+ cin >> n
+ cout << n << " in the Fibonacci sequence is " << f(n) << endl;
+#endif
+
 /* TODO: (WARNING: THIS IS NOT EASY. Only attempt this if you are bored.)
  * The previous exercise asked for you to compute the nth term of the
  * Fibonacci sequence.  Try to estimate approximately how many steps (number
@@ -86,3 +186,5 @@ int main()
  * log(n) steps!  To find it, you'll probably need a hint or two to even get
  * started.  Ask me if you're interested.
  * */
+return 0;
+}

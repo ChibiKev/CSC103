@@ -19,6 +19,7 @@ int main()
 	 * */
 	/* let's test the conjecture for many integers, provided on
 	 * standard input. */
+	#if 0
 	int n;
 	while (cin >> n) {
 		int oldn = n;
@@ -33,8 +34,22 @@ int main()
 
 	return 0;
 }
-
+#endif
 /* TODO: delete the entire thing and rewrite it from scratch. */
+#if 0
+int n;
+int count=0;
+while (cin >> n){
+	while (n>1){
+	count++;
+	if (n%2==0)
+		n/=2;
+	else
+		n=(n*3)+1;
+}
+cout << count << endl;
+}
+#endif
 /* TODO: look through the bash-history and see how much makes sense. */
 /* NOTE: if (and ONLY IF) you are feeling ambitious, try to make sense
  * out of this shell pipeline, which also finds the maximal # of steps
@@ -44,5 +59,6 @@ int main()
  * This version is more "efficient" in that it does not require sorting the
  * entire input, or even *storing* the entire input at once.
  * */
-
+return 0;
+}
 // vim:foldlevel=1

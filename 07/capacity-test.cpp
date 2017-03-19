@@ -20,6 +20,7 @@ void test() {
 	for (size_t i = 0; i < 20; i++) {
 		printf("%lu\n",v.capacity());
 		v.push_back(i);
+		cout << i << endl;
 	}
 	/* TODO: figure out the pattern / rule for how capacity is
 	 * updated, and then see if you can figure out *why* they chose
