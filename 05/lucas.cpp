@@ -31,18 +31,9 @@ cout<<current<<endl;
 }
 
 // vim:foldlevel=1
-/*int p=5,q=2,n=3,i=2;
-int oneb4=1,twob4=0,current=p;
-while (i>n){
-	i++;
-	twob4=oneb4;
-	oneb4=current;
-	current=p*oneb4+q*twob4*i;}
-	cout <<current <<endl;
-	return 0;
-}
-*/
-/*int n;
+#if 0
+
+int n;
 cin >> n;
 int onebefore=2,twobefore=3, current=14;
 int i=2;
@@ -54,4 +45,5 @@ current=5*onebefore+2*twobefore-i;
 }
 cout << current << endl;
 return 0;
-}*/
+}
+#endif

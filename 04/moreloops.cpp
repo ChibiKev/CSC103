@@ -28,7 +28,7 @@ int main()
 	/* exercise: compute the min of integers supplied via stdin. */
 	#if 0
 	int n; /* store input */
-	int min; /* minimum of what we've seen *so far*. */
+	int min; /* minimum of what we've seen3 *so far*. */
 	cin >> n;
 	min = n; /* NOTE: at this point, min's value is
 				consistent with the meaning we gave it! */
@@ -109,7 +109,7 @@ int n;
 }
 #endif
 	/* TODO: write a loop that prints the sum of the first n odd cubes. */
-#if 0
+#if 1
 int x,y; //x is the input value;y is the cubed variable
 	while(cin >> x){ //endless input
 		int z=0; //z is the sum
@@ -167,7 +167,7 @@ for (cin >> n)
 	 * stdin and outputs the *second* smallest one.  NOTE: you don't need
 	 * to store many numbers (all at once, that is) to do this!  You'll
 	 * only need a few integer variables.  Think about invariants! */
-#if 1
+#if 0
 int x,min,secondmin;
 cin >> min;
 cin >> secondmin;

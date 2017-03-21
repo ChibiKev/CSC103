@@ -128,16 +128,19 @@ while (cin >> x) {
 /* TODO: read integers from stdin, and print their sum.  See above
 	 * for how to read ints from stdin (use a while(cin >> n) thing). */
 int n,x;
+int count=0;
 cin >> n;
 x=n;
-int count=0;
-for (cin >> n; n%2==0; count++){
-	n=n/2;
+while (n%2==0){
+	n/=2;
+	count++;
 }
-
+if (n==1) {
 	cout << "2**" << count << "=" << x <<endl;
-	cout << count << endl;
-
+}
+else{
+	cout << "Invalid" << endl;
+}
 	/* TODO: given an integer n, find exponent of the largest power of two that
 	 * divides n.  Example: if n = r*8 with r odd, then you should output 3
 	 * since 8 = 2^3.  (You are just recovering the exponent of the 2 in the
