@@ -144,7 +144,7 @@ int main(void)
 		cout << *i <<endl;
 	}
 	#endif
-	#if 1 //vector to set to vector
+	#if 0 //vector to set to vector
 	vector<int> x;
 	int y;
 	while (cin >> y && y >= 0){
@@ -168,19 +168,15 @@ int main(void)
 		cout << v[i] << "  ";
 	}
 	#endif
-	#if 0 //remove a number inside vector
+	#if 1 //remove a number inside vector
 	vector <int> t;
 	int x;
 	int n;
 	cout << "insert any positive number" <<endl;
 	while(cin>> x){
-		if (x>=0){
 		t.push_back(x);
-		}
-		else{
-		break;
-		}
 	}
+	cin.clear();
 	cout << "your vector contains" <<endl;
 	for (size_t i=0; i < t.size(); i++){
 		cout << t[i] << "  ";
@@ -192,6 +188,7 @@ int main(void)
 	for (size_t i=0; i < t.size(); i++){
 		cout << t[i] << "  ";
 	}
+	cout << endl;
 	#endif
 	return 0;
 }
