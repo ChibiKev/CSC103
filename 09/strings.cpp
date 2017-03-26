@@ -38,28 +38,7 @@ cout << countChars (n,x) << endl;
 /* TODO: write a function that takes a string and returns a boolean
  * indicating whether or not it was a palindrome.
  * */
- #if 0
-size_t boolean(string&s){
- size_t x=s.length()-1;
- #if 0
-  int k=0,j=0;
- for (size_t i=0; i < s.length();i++){
- if (s[i]==' ')
-  k++;
- if(s[x-i]==' ')
-  j++;
- if (s[i+k]==s[x-i-j])
-  #endif
-  #if 1
- for (size_t i=0; i < s.length();i++){
-  if (s[i]==s[x-i])
-  #endif
-   continue;
-   else
-    return false;
-  }
- return true;
- }
+ #if 1
  bool isPalin (const string&s) {
  for (size_t i=0; i < s.length()/2;i++){
   if (s[i]!=s[s.length()-1-i])
@@ -70,25 +49,18 @@ size_t boolean(string&s){
 int main(){
  string x;
  while (getline(cin,x)){
-  cout <<boolean(x)<<endl;
+  cout <<isPalin(x)<<endl;
  }
  return 0;
 }
 #endif
-bool isPalin (const string&s) {
- for (size_t i=0; i < s.length()/2;i++){
-  if (s[i]!=s[s.length()-1-i])
-   return false;
- }
-  return true;
- }
 
 /* TODO: write a function that takes two strings and returns an integer value
  * indicating whether or not the first was a substring of the second.  Remember
  * that the return value should be the index at which the string was found, or
  * -1 to indicate that the string was not found.
  * */
-#if 1
+#if 0
 int isSubstring(const string& s1, const string& s2) {
   size_t n1=s1.length();
   size_t n2=s2.length();
