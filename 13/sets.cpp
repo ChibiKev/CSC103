@@ -46,13 +46,13 @@ void setTest() {
 void sort(vector<int>&x)
 	{
 		set<int> s;
+		vector <int> k;
 		for (vector<int>::iterator i=x.begin(); i != x.end(); i++)
 			{s.insert(*i);}
-			int counter=0;
 		for (set<int>::iterator i=s.begin(); i!=s.end(); i++){
-			x[counter++]=*i;
+			k.push_back(*i);
 		}
-
+	x=k;
 	}
 
 /* exercise: compute the intersection of two sets:
@@ -144,8 +144,12 @@ int main(void)
 		cout << *i <<endl;
 	}
 	#endif
-	#if 0 //vector to set to vector
-	vector<int> x= {};
+	#if 1 //vector to set to vector
+	vector<int> x;
+	int y;
+	while (cin >> y && y >= 0){
+		x.push_back(y);
+	}
 	sort(x);
 	for (size_t i=0; i < x.size();i++)
 		{cout << x[i] << endl;}
