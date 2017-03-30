@@ -1,0 +1,2 @@
+./maps < maps.cpp | less
+echo "hello hello hello wow wow :D :D :D :D" | ./maps 
