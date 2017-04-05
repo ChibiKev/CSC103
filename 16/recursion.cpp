@@ -9,8 +9,13 @@ void f(int n) {
 		cout << 0 << " ";
 		return;
 	}
+	#if 0
 	cout << n << " ";
 	f(n-1);
+	#else
+	f(n-1);
+	cout << n << " ";
+	#endif
 	/* TODO: make sure you can trace the sequence of recursive calls that
 	 * would result from calling say, f(3).  Flip the order of the cout
 	 * statement and the recursive call, and make sure you understand
@@ -28,10 +33,24 @@ void f(int n) {
 void printVertically(unsigned long n)
 {
 	// your code goes here.
+	if (n < 10){
+		cout << n << endl;
+	}
+	else {
+		printVertically(n/10);
+		cout << (n%10) << endl;
+	}
 }
 
 // TODO: write a recursive function to compute a^b (a to the b power)
-
+int power(int x, int n){
+	if (n > 0) {
+		return (power(x,n-1)*x);
+	}
+	else {
+		return 1;
+	}
+}
 /* binary search. */
 
 bool search(int* A, int size, int x)
