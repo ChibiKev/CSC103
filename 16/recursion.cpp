@@ -2,7 +2,9 @@
 using std::cin;
 using std::cout;
 using std::endl;
-
+#include <vector>
+using std::vector;
+int fibonacci(size_t x, vector <int> &n);
 /* Let's revisit our example from last class: */
 void f(int n) {
 	if (n == 0) {
@@ -52,7 +54,7 @@ int power(int x, int n){
 	}
 }
 /* binary search. */
-
+#if 0
 bool search(int* A, int size, int x)
 {
 	/* TODO: try to turn the following "plain-English" procedure into
@@ -64,15 +66,23 @@ bool search(int* A, int size, int x)
 	 * (There are some subtle points about making sure the size is always
 	 * decreasing...)
 	 * */
+	if (size < 1){
 	return false;
+	}
+	middle=
+	if (x < middle){
+		search(
+	else
+		search(
 }
-
+#endif
 int main()
 {
 	f(4);
 	/* TODO: write test code for your functions. */
 	printVertically(3227);
 	/* binary search test: */
+	#if 0
 	int A[100];
 	for (size_t i = 0; i < 100; i++) {
 		A[i] = i*i;
@@ -80,9 +90,28 @@ int main()
 	int x;
 	while (cin >> x)
 		cout << search(A,100,x) << endl;
+	#endif
+	vector<int> n;
+	int x;
+	cin >> x;
+	cout << fibonacci(x,n);
 	return 0;
 }
 
 /* TODO: try to write the "memoized" version of fibonacci we outlined
  * during lecture.  NOTE: there are some slightly annoying details if
  * you use vectors.  Maps might be a bit easier. */
+int fibonacci(size_t x, vector <int> &n){
+	if (x < n.size()) {
+		return n[x];
+	}
+	int answer;
+	if (x<2){
+		answer=1;
+	}
+	else{
+		answer= fibonacci(x-1,n) + fibonacci(x-2,n);
+		n.push_back(answer);
+	}
+	return answer;
+}
