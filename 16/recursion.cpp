@@ -2,15 +2,22 @@
 using std::cin;
 using std::cout;
 using std::endl;
-
+#include <vector>
+using std::vector;
+int fibonacci(size_t x, vector <int> &n);
 /* Let's revisit our example from last class: */
 void f(int n) {
 	if (n == 0) {
 		cout << 0 << " ";
 		return;
 	}
+	#if 0
 	cout << n << " ";
 	f(n-1);
+	#else
+	f(n-1);
+	cout << n << " ";
+	#endif
 	/* TODO: make sure you can trace the sequence of recursive calls that
 	 * would result from calling say, f(3).  Flip the order of the cout
 	 * statement and the recursive call, and make sure you understand
@@ -28,12 +35,26 @@ void f(int n) {
 void printVertically(unsigned long n)
 {
 	// your code goes here.
+	if (n < 10){
+		cout << n << endl;
+	}
+	else {
+		printVertically(n/10);
+		cout << (n%10) << endl;
+	}
 }
 
 // TODO: write a recursive function to compute a^b (a to the b power)
-
+int power(int x, int n){
+	if (n > 0) {
+		return (power(x,n-1)*x);
+	}
+	else {
+		return 1;
+	}
+}
 /* binary search. */
-
+#if 1
 bool search(int* A, int size, int x)
 {
 	/* TODO: try to turn the following "plain-English" procedure into
@@ -45,15 +66,28 @@ bool search(int* A, int size, int x)
 	 * (There are some subtle points about making sure the size is always
 	 * decreasing...)
 	 * */
-	return false;
+	if (size < 1) {
+		return false;
+	}
+	int mid=size/2;
+	if (x==A[mid]){
+	return true;
+	}
+	else if (x<A[mid]){
+		search (A, mid-1, x);
+	}
+	else {
+		search (A,mid+1,x);
+		}
 }
-
+#endif
 int main()
 {
 	f(4);
 	/* TODO: write test code for your functions. */
 	printVertically(3227);
 	/* binary search test: */
+	#if 1
 	int A[100];
 	for (size_t i = 0; i < 100; i++) {
 		A[i] = i*i;
@@ -61,9 +95,30 @@ int main()
 	int x;
 	while (cin >> x)
 		cout << search(A,100,x) << endl;
+	#endif
+	#if 0
+	vector<int> n;
+	int x;
+	cin >> x;
+	cout << fibonacci(x,n);
+	#endif
 	return 0;
 }
 
 /* TODO: try to write the "memoized" version of fibonacci we outlined
  * during lecture.  NOTE: there are some slightly annoying details if
  * you use vectors.  Maps might be a bit easier. */
+int fibonacci(size_t x, vector <int> &n){
+	if (x < n.size()) {
+		return n[x];
+	}
+	int answer;
+	if (x<2){
+		answer=1;
+	}
+	else{
+		answer= fibonacci(x-1,n) + fibonacci(x-2,n);
+		n.push_back(answer);
+	}
+	return answer;
+}
