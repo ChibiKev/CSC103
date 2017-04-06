@@ -54,7 +54,7 @@ int power(int x, int n){
 	}
 }
 /* binary search. */
-#if 0
+#if 1
 bool search(int* A, int size, int x)
 {
 	/* TODO: try to turn the following "plain-English" procedure into
@@ -66,14 +66,19 @@ bool search(int* A, int size, int x)
 	 * (There are some subtle points about making sure the size is always
 	 * decreasing...)
 	 * */
-	if (size < 1){
-	return false;
+	if (size < 1) {
+		return false;
 	}
-	middle=
-	if (x < middle){
-		search(
-	else
-		search(
+	int mid=size/2;
+	if (x==A[mid]){
+	return true;
+	}
+	else if (x<A[mid]){
+		search (A, mid-1, x);
+	}
+	else {
+		search (A,mid+1,x);
+		}
 }
 #endif
 int main()
@@ -82,7 +87,7 @@ int main()
 	/* TODO: write test code for your functions. */
 	printVertically(3227);
 	/* binary search test: */
-	#if 0
+	#if 1
 	int A[100];
 	for (size_t i = 0; i < 100; i++) {
 		A[i] = i*i;
@@ -91,10 +96,12 @@ int main()
 	while (cin >> x)
 		cout << search(A,100,x) << endl;
 	#endif
+	#if 0
 	vector<int> n;
 	int x;
 	cin >> x;
 	cout << fibonacci(x,n);
+	#endif
 	return 0;
 }
 
