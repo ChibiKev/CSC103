@@ -114,9 +114,9 @@ bool search(int* A, int size, int x)
 }
 int main()
 {
-	f(4);
+	//f(4);
 	/* TODO: write test code for your functions. */
-	printVertically(3227);
+	//printVertically(6234);
 	/* binary search test: */
 	#if 0
 	int A[100];
@@ -144,14 +144,22 @@ int main()
 int fibonacci(size_t x, vector <int> &n){
 	// invariant: if n < n.size
 	// then n[x]==f(x)
+	#if 0
 	n={0,1};
 	if (x < n.size()) {
 		return n[x];
 	}
 	size_t answer=0;
-	#if 0
-	if (x<=2&& x>0) {
-		answer=1;
+	#else
+	if (x < n.size()) {
+		return n[x];
+	}
+	size_t answer=0;
+	if (x<=1&& x>0) {
+		answer=1;n.push_back(0);
+	}
+	else if (x<=0){
+		answer=0;
 	}
 	else{
 	#endif
@@ -161,7 +169,7 @@ int fibonacci(size_t x, vector <int> &n){
 		//be careful to make sure there is space,
 		//of note, pushback might add
 		//element in the wrong answer
-	//}
+	}
 	n.push_back(answer);
 	return answer;
 }
