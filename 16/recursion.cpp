@@ -66,28 +66,35 @@ bool search(int* A, int size, int x)
 	 * decreasing...)
 	 * */
 #if 1
-	size_t mid= size/2;
+	size_t mid=size/2;
 	if (size < 1)
 		return false;
-	else if (x==A[mid]){
+	else if (x==A[mid])
 		return true;
-	}
 	else{
 		int L[mid];
 		int R[mid];
+		int blah=0;
 		for(size_t i=0;i<mid;i++){
 			L[i]=A[i];
 		}
 		for(size_t i=0;i < mid;i++){
 				R[i]=A[mid+1+i];
 		}
-			if (x< A[mid]){
-			search (L,mid,x);
-			}
-			else if (x > A[mid]){
-			search (R,mid,x);
-			}
+		if (x< A[mid]){
+			blah= (int) search (L,mid,x);
+		}
+		else if (x > A[mid]){
+			blah= (int) search (R,mid,x);
+		}
+		if (blah+=blah) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
+
 #else
 	if (size<1) {
 		return false;
@@ -137,25 +144,24 @@ int main()
 int fibonacci(size_t x, vector <int> &n){
 	// invariant: if n < n.size
 	// then n[x]==f(x)
-	n={0,1,1,2};
+	n={0,1};
 	if (x < n.size()) {
 		return n[x];
 	}
 	size_t answer=0;
-	if (x<2&&x>0) {
+	#if 0
+	if (x<=2&& x>0) {
 		answer=1;
-		n.push_back(answer);
 	}
 	else{
+	#endif
 		answer=(fibonacci(x-1,n) + fibonacci(x-2,n));
 		//update memory/table of answers
 		//need to set n[x]=answer, but
 		//be careful to make sure there is space,
 		//of note, pushback might add
 		//element in the wrong answer
-		if (answer>1){
-		n.push_back(answer);
-		}
-	}
+	//}
+	n.push_back(answer);
 	return answer;
 }
