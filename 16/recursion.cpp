@@ -54,7 +54,6 @@ int power(int x, int n){
 	}
 }
 /* binary search. */
-#if 1
 bool search(int* A, int size, int x)
 {
 	/* TODO: try to turn the following "plain-English" procedure into
@@ -66,28 +65,53 @@ bool search(int* A, int size, int x)
 	 * (There are some subtle points about making sure the size is always
 	 * decreasing...)
 	 * */
-	if (size < 1) {
+#if 1
+	size_t mid= size/2;
+	if (size < 1)
+		return false;
+	else if (x==A[mid]){
+		return true;
+	}
+	else{
+		int L[mid];
+		int R[mid];
+		for(size_t i=0;i<mid;i++){
+			L[i]=A[i];
+		}
+		for(size_t i=0;i < mid;i++){
+				R[i]=A[mid+1+i];
+		}
+			if (x< A[mid]){
+			search (L,mid,x);
+			}
+			else if (x > A[mid]){
+			search (R,mid,x);
+			}
+	}
+#else
+	if (size<1) {
 		return false;
 	}
-	int mid=size/2;
-	if (x==A[mid]){
-	return true;
+	size_t mid= size/2;
+	size_t leftmid=mid/2;
+	size_t rightmid=mid+leftmid;
+	if (x==A[mid]) {
+		return true;
 	}
-	else if (x<A[mid]){
-		search (A, mid-1, x);
+	int truth= (int) search (A,leftmid,x) + (int) search (A,rightmid,x);
+	if (truth){
+		return true;
 	}
-	else {
-		search (A,mid+1,x);
-		}
-}
+	return false;
 #endif
+}
 int main()
 {
 	f(4);
 	/* TODO: write test code for your functions. */
 	printVertically(3227);
 	/* binary search test: */
-	#if 1
+	#if 0
 	int A[100];
 	for (size_t i = 0; i < 100; i++) {
 		A[i] = i*i;
@@ -96,11 +120,13 @@ int main()
 	while (cin >> x)
 		cout << search(A,100,x) << endl;
 	#endif
-	#if 0
+	#if 1
 	vector<int> n;
 	int x;
-	cin >> x;
+	while (cin >> x){
 	cout << fibonacci(x,n);
+	cout << endl;
+	}
 	#endif
 	return 0;
 }
@@ -109,16 +135,27 @@ int main()
  * during lecture.  NOTE: there are some slightly annoying details if
  * you use vectors.  Maps might be a bit easier. */
 int fibonacci(size_t x, vector <int> &n){
+	// invariant: if n < n.size
+	// then n[x]==f(x)
+	n={0,1,1,2};
 	if (x < n.size()) {
 		return n[x];
 	}
-	int answer;
-	if (x<2){
+	size_t answer=0;
+	if (x<2&&x>0) {
 		answer=1;
+		n.push_back(answer);
 	}
 	else{
-		answer= fibonacci(x-1,n) + fibonacci(x-2,n);
+		answer=(fibonacci(x-1,n) + fibonacci(x-2,n));
+		//update memory/table of answers
+		//need to set n[x]=answer, but
+		//be careful to make sure there is space,
+		//of note, pushback might add
+		//element in the wrong answer
+		if (answer>1){
 		n.push_back(answer);
+		}
 	}
 	return answer;
 }

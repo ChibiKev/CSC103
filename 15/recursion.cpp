@@ -149,13 +149,13 @@ int main(void)
 	cin >> n;
 	cout << x << "^" << n << "=" << power(x,n) << endl;
 	#endif
-	#if 1 //fibonacci
+	#if 0 //fibonacci
 	int number;
 	cout << "insert number to run fibonacci sequence" << endl;
 	cin >> number;
 	cout << fibonacci(number) << endl;
 	#endif
-	#if 0 //sorting
+	#if 1 //sorting
 	vector <int> sorting;
 	int n;
 	while (cin >> n){
