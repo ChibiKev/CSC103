@@ -65,7 +65,7 @@ bool search(int* A, int size, int x)
 	 * (There are some subtle points about making sure the size is always
 	 * decreasing...)
 	 * */
-#if 1
+#if 0
 	size_t mid=size/2;
 	if (size < 1)
 		return false;
@@ -94,8 +94,8 @@ bool search(int* A, int size, int x)
 			return false;
 		}
 	}
-
-#else
+#endif
+#if 0
 	if (size<1) {
 		return false;
 	}
@@ -111,14 +111,24 @@ bool search(int* A, int size, int x)
 	}
 	return false;
 #endif
+#if 1
+	if (size < 1) return false;
+	if (A[size/2] >x)
+		return search(A, size/2, x);
+	else if (A[size/2] < x)
+		return search(A+size/2+1,size-size/2-1,x);
+	else
+		return true;
+#endif
 }
+
 int main()
 {
 	//f(4);
 	/* TODO: write test code for your functions. */
 	//printVertically(6234);
 	/* binary search test: */
-	#if 0
+	#if 1
 	int A[100];
 	for (size_t i = 0; i < 100; i++) {
 		A[i] = i*i;
@@ -127,7 +137,7 @@ int main()
 	while (cin >> x)
 		cout << search(A,100,x) << endl;
 	#endif
-	#if 1
+	#if 0
 	vector<int> n;
 	int x;
 	while (cin >> x){
