@@ -12,12 +12,24 @@ using std::vector;
 /* TODO: review that "print vertically" function.  Make sure you can write
  * it on your own and that you understand why it works (you can trace the
  * sequence of calls) */
-
+int printvertical(int x){
+	if (x<10){
+		cout << x << endl;
+	}
+	else {
+		printvertical(x/10);
+		cout << (x%10) << endl;
+	}
+}
 /* TODO: write code to compute the greatest common divisor of two integers
  * Do this with recursion -- no loops!  */
 int gcd(int a, int b)
 {
-	return 1;
+	if (b==0) {
+		return a;
+	}
+	else
+	return gcd (b, a%b);
 }
 
 /* TODO: write the *extended* GCD algorithm, which returns gcd(a,b), but
