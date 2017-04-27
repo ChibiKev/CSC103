@@ -64,6 +64,7 @@ vector<vector<int> > powerSetV(vector<int>& V){
 int main()
 {
 	/* TODO: test code goes here */
+#if 0 //0 for vector, 1 for set
 	set<int> S = {0,1,2};
 	set<set<int> > P = powerSet(S);
 	cout << "{\n";
@@ -75,6 +76,7 @@ int main()
 		cout << "},\n";
 	}
 	cout << "}\n";
+#else
 	vector <int> V = {0,1,2};
 	vector<vector<int> > P1 = powerSetV(V);
 	cout << "{\n";
@@ -86,6 +88,7 @@ int main()
 		cout << "},\n";
 	}
 	cout << "}\n";
+#endif
 	return 0;
 }
 
