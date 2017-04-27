@@ -5,7 +5,7 @@ using std::cout;
 using std::vector;
 #include <set>
 using std::set;
-
+using namespace std;
 /* TODO: try to re-write the powerset function from lecture. */
 
 /* with sets: */
@@ -41,7 +41,24 @@ set<set<int> > powerSet(set<int>& S)
 
 /* TODO: try to write a powerset function for vectors, say using
  * the following prototype:  */
-vector<vector<int> > powerSet(vector<int>& V);
+vector<vector<int> > powerSetV(vector<int>& V){
+	if (V.size() == 0) {
+		vector<int> empty;
+		vector<vector<int> > P;
+		P.push_back(empty);
+		return P;
+	}
+	int leftout = *V.begin();
+	V.erase(V.begin());
+	vector<vector<int> > T = powerSetV(V);
+	vector<vector<int> > P(T);
+	for (vector<vector<int> >::iterator i = T.begin(); i!=T.end(); i++) {
+		vector<int> U = *i;
+		U.push_back(leftout);
+		P.push_back(U);
+	}
+	return P;
+}
 /* For this, assume all elements of the vector are distinct. */
 
 int main()
@@ -53,6 +70,17 @@ int main()
 	for (set<set<int> >::iterator i = P.begin(); i!=P.end(); i++) {
 		cout << "  {";
 		for (set<int>::iterator j = (*i).begin(); j!=(*i).end(); j++) {
+			cout << *j << " ";
+		}
+		cout << "},\n";
+	}
+	cout << "}\n";
+	vector <int> V = {0,1,2};
+	vector<vector<int> > P1 = powerSetV(V);
+	cout << "{\n";
+	for (vector<vector<int> >::iterator i = P1.begin(); i!=P1.end(); i++) {
+		cout << "  {";
+		for (vector<int>::iterator j = (*i).begin(); j!=(*i).end(); j++) {
 			cout << *j << " ";
 		}
 		cout << "},\n";

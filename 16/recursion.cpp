@@ -124,9 +124,9 @@ bool search(int* A, int size, int x)
 
 int main()
 {
-	//f(4);
+	f(4);
 	/* TODO: write test code for your functions. */
-	//printVertically(6234);
+	printVertically(2358);
 	/* binary search test: */
 	#if 1
 	int A[100];
