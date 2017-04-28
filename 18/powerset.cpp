@@ -41,6 +41,7 @@ set<set<int> > powerSet(set<int>& S)
 
 /* TODO: try to write a powerset function for vectors, say using
  * the following prototype:  */
+#if 0
 vector<vector<int> > powerSetV(vector<int>& V){
 	if (V.size() == 0) {
 		vector<int> empty;
@@ -59,6 +60,26 @@ vector<vector<int> > powerSetV(vector<int>& V){
 	}
 	return P;
 }
+#else
+vector <vector<int> > powerSetV (vector <int> &s){
+	vector <vector <int> > res;
+	if (s.size()==0){
+		res.push_back(vector<int> () );
+		return res;
+	}
+	int tmp=s.back();
+	s.pop_back();
+	res=powerSetV(s);
+	size_t n=res.size();
+	for (size_t i=0; i < n; i++){
+		vector <int> v=res[i];
+		v.push_back(tmp);
+		res.push_back(v);
+	}
+	s.push_back(tmp);
+	return res;
+}
+#endif
 /* For this, assume all elements of the vector are distinct. */
 
 int main()
