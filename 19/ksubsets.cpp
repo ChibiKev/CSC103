@@ -1,5 +1,6 @@
 #include <iostream>
 using std::cout;
+using std::cin;
 #include <vector>
 using std::vector;
 #include <set>
@@ -11,15 +12,26 @@ using std::set;
  * for the intuition and an outline. */
 
 /* with sets: */
-#if 0
+#if 1 //sets does not run
 set<set<int> > ksubsets(set<int>& S, size_t k){
-  if (k==0) {
-  return {{}};
+ size_t n= S.size();
+ if (k >n) {
+  return set <set<int> > ();
  }
- if (k > S.size()){
-  return {};
+ if (k==0) {
+ return set <set<int> > (1,set<int> ());
  }
-
+ set <int> ::iterator last = S.end();
+ S.erase(*last-1);
+ set <set<int> > L= ksubsets(S,k);
+ set <set<int> > R= ksubsets(S,k-1);
+ for (set<set<int> >::iterator i = R.begin(); i != R.end(); i++){
+  set <int> T= *i;
+  T.insert(*last-1);
+  L.insert(T);
+ }
+ S.insert(*last-1);
+ return L;
 }
 #else
 /* or with vectors: */
@@ -47,8 +59,25 @@ vector<vector<int> > ksubsets(vector<int>& V, size_t k){
 int main()
 {
 	/* TODO: write some test code. */
+ #if 1
+ set <int> S= {1,2,3,4};
+ int x;
+ while (cin >> x){
+ set<set<int> > P = ksubsets(S,x);
+	for (set<set<int> >::iterator i = P.begin(); i != P.end(); i++) {
+		cout << "{ ";
+		for (set<int>::iterator j = i->begin(); j != i->end(); j++) {
+			cout << *j << " ";
+		}
+		cout << "}\n";
+   }
+  }
+ #else
   vector<int> S= {1,2,3,4};
- 	vector<vector<int> > P = ksubsets(S,2);
+  int x;
+  while (cin >> x){
+ 	vector<vector<int> > P = ksubsets(S,x);
+  set <set<int> > P= ksubsets(S,x);
 	for (vector<vector<int> >::iterator i = P.begin(); i != P.end(); i++) {
 		cout << "{ ";
 		for (vector<int>::iterator j = i->begin(); j != i->end(); j++) {
@@ -56,5 +85,7 @@ int main()
 		}
 		cout << "}\n";
    }
+  }
+ #endif
 	return 0;
 }
