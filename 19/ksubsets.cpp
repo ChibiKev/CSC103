@@ -12,7 +12,7 @@ using std::set;
  * for the intuition and an outline. */
 
 /* with sets: */
-#if 1 //sets does not run
+#if 0 //sets does not run
 set<set<int> > ksubsets(set<int>& S, size_t k){
  size_t n= S.size();
  if (k >n) {
@@ -59,7 +59,7 @@ vector<vector<int> > ksubsets(vector<int>& V, size_t k){
 int main()
 {
 	/* TODO: write some test code. */
- #if 1
+ #if 0
  set <int> S= {1,2,3,4};
  int x;
  while (cin >> x){
@@ -77,7 +77,6 @@ int main()
   int x;
   while (cin >> x){
  	vector<vector<int> > P = ksubsets(S,x);
-  set <set<int> > P= ksubsets(S,x);
 	for (vector<vector<int> >::iterator i = P.begin(); i != P.end(); i++) {
 		cout << "{ ";
 		for (vector<int>::iterator j = i->begin(); j != i->end(); j++) {
