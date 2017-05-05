@@ -12,25 +12,27 @@ using std::set;
  * for the intuition and an outline. */
 
 /* with sets: */
-#if 0 //sets does not run
+#if 0
 set<set<int> > ksubsets(set<int>& S, size_t k){
  size_t n= S.size();
  if (k >n) {
   return set <set<int> > ();
  }
  if (k==0) {
- return set <set<int> > (1,set<int> ());
+  set <set<int> > P;
+  P.insert(set<int> ());
+  return P;
  }
- set <int> ::iterator last = S.end();
- S.erase(*last-1);
+ int first= *(S.begin());
+ S.erase(S.begin());
  set <set<int> > L= ksubsets(S,k);
  set <set<int> > R= ksubsets(S,k-1);
  for (set<set<int> >::iterator i = R.begin(); i != R.end(); i++){
-  set <int> T= *i;
-  T.insert(*last-1);
+  set <int> T= (*i);
+  T.insert(first);
   L.insert(T);
  }
- S.insert(*last-1);
+ S.insert(first);
  return L;
 }
 #else

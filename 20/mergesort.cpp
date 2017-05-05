@@ -18,48 +18,43 @@ void merge(vector<int>& A, size_t low, size_t mid, size_t high)
 	size_t l=low; /* left subarray candidate for smallest element */
 	size_t r=mid+1; /* right subarray candidate for smallest element */
 	while (l <= mid && r <= high) {
-		if (A[l] < A[r]){
-			merged.push_back(A[l]);
-			l++;
+		if (A[l] <= A[r]){
+			merged.push_back(A[l++]);
 		}
 		else{
-			merged.push_back(A[r]);
-			r++;
+			merged.push_back(A[r++]);
 		}
 	}
 	/* TODO: now handle case where one or the other has run out of elements: */
 	/* TODO: remember to copy back into the right locations in A! */
-	#if 1
-	if (l > mid)
-    {
-        for (size_t k= r; k <=high; k++)
-        {
-            merged.push_back(A[k]);
-        }
-    }
-	else
-    {
-        for (size_t k = l; k <= mid; k++)
-        {
-            merged.push_back(A[k]);
-        }
-    }
-	#else
-	while (l > mid && r <= high){
-			merged.push_back(A[r]);
-			r++;
+  #if 0
+  while (r <= high){
+    merged.push_back(A[r++]);
+  }
+  while ( l <= mid){
+		merged.push_back(A[l++]);
 	}
-	while (r > high && l <= mid){
-		merged.push_back(A[l]);
-		l++;
-	}
-	#endif
-	A=merged;
+  #else
+  if (l > mid){
+    for (size_t x=r; x<=high; x++){
+      merged.push_back(A[x]);
+    }
+  }
+  else {
+    for (size_t x=l; x<=mid; x++){
+    merged.push_back(A[x]);
+    }
+  }
+  #endif
+  for (size_t i= low; i <= high; i++) {
+  A[i]=merged[i-low];
+  }
 }
 
 /* sort A[low...high], inclusive. */
 void mergeSort(vector<int>& A, size_t low, size_t high)
 {
+	#if 1
 	/* base case: subarray has less than 2 elements: */
 	if (low >= high) return;
 	/* else, divide array in two equal-ish pieces,
@@ -73,15 +68,27 @@ void mergeSort(vector<int>& A, size_t low, size_t high)
 	 * the subarrays we computed above will always be non-trivial.  That
 	 * is, neither subarray will be the entire array A[low..high].
 	 * (This is crucial to prevent infinite recursion!) */
+	#else
+	if (low < high) {
+		size_t mid= (low+high)/2;
+		mergeSort(A, low, mid);
+		mergeSort(A,mid+1,high);
+		merge (A, low, mid, high);
+	}
+	#endif
 }
 
 int main(void)
 {
-	vector<int> A;
+	#if 1
+	vector<int> A= {2, 1, 4, 3, 9,6,7,5,8};
+	#else
+	vector <int> A;
 	int temp;
-	while (cin >> temp) {
+	while (cin >> temp){
 		A.push_back(temp);
 	}
+	#endif
 	mergeSort(A,0,A.size()-1);
 	for (size_t i = 0; i < A.size(); i++) {
 		cout << A[i] << " ";
