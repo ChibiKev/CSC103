@@ -18,13 +18,43 @@ void merge(vector<int>& A, size_t low, size_t mid, size_t high)
 	size_t l=low; /* left subarray candidate for smallest element */
 	size_t r=mid+1; /* right subarray candidate for smallest element */
 	while (l <= mid && r <= high) {
-		if (A[l] < A[r])
-			merged.push_back(A[l++]);
-		else
-			merged.push_back(A[r++]);
+		if (A[l] < A[r]){
+			merged.push_back(A[l]);
+			l++;
+		}
+		else{
+			merged.push_back(A[r]);
+			r++;
+		}
 	}
 	/* TODO: now handle case where one or the other has run out of elements: */
 	/* TODO: remember to copy back into the right locations in A! */
+	#if 1
+	if (l > mid)
+    {
+        for (size_t k= r; k <=high; k++)
+        {
+            merged.push_back(A[k]);
+        }
+    }
+	else
+    {
+        for (size_t k = l; k <= mid; k++)
+        {
+            merged.push_back(A[k]);
+        }
+    }
+	#else
+	while (l > mid && r <= high){
+			merged.push_back(A[r]);
+			r++;
+	}
+	while (r > high && l <= mid){
+		merged.push_back(A[l]);
+		l++;
+	}
+	#endif
+	A=merged;
 }
 
 /* sort A[low...high], inclusive. */
