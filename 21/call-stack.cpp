@@ -61,9 +61,13 @@ void pwdcheck() {
  *
  * Usually, these stem from using C string manipulation routines like `strcpy`
  * on fixed length buffers allocated on the runtime stack.  In general, you
- * should *never* do this.  If you must allocate buffers on the stack, use
- * instead functions like `strncpy` which accept a parameter for the length of
- * the buffer, and won't copy more characters than would fit (as long as you
- * supply the right length!).  See `man strcpy` for more, and always pay
- * attention to your compiler warnings (and enable them with -Wall).
+ * should *never* do this.  Also, you should always prefer functions like
+ * `strncpy` which accept a parameter for the length of the buffer, and won't
+ * copy more characters than would fit (as long as you supply the right
+ * length!).  See `man strcpy` for more, and always pay attention to your
+ * compiler warnings (and enable them with -Wall).
+ * Lastly, if using gcc, there is a compiler flag -fstack-protector that works
+ * well at defending against overflow on the stack.  Try it out!  Just uncomment
+ * it in the makefile, or run g++ directly.  And to read more about how it
+ * works, run `info gcc` and search for it.
  * */

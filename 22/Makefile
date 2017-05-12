@@ -3,7 +3,7 @@ OBJECTS := $(SOURCES:.c=.o)
 OBJECTS := $(OBJECTS:.cpp=.o)
 HEADERS := $(wildcard *.h include/*.h)
 
-COMMON   := -O0 -Wall -Wformat=2 -std=c++98 -pedantic-errors # -fstack-protector
+COMMON   := -O2 -Wall -Wformat=2 -std=c++98 -pedantic-errors
 CFLAGS   := $(CFLAGS) $(COMMON)
 CXXFLAGS := $(CXXFLAGS) $(COMMON)
 CC       := gcc
@@ -30,9 +30,6 @@ debug : all
 $(TARGET) : $(OBJECTS)
 	$(LD) $(LDFLAGS) -o $@ $^ $(LDADD)
 
-%.s : %.cpp
-	$(CXX) $(CXXFLAGS) -S -fverbose-asm $< -o $@
-
 %.o : %.cpp $(HEADERS)
 	$(CXX) $(DEFS) $(INCLUDE) $(CXXFLAGS) -c $< -o $@
 
@@ -41,7 +38,7 @@ $(TARGET) : $(OBJECTS)
 
 .PHONY : clean
 clean :
-	rm -f $(TARGET) $(OBJECTS) *.s
+	rm -f $(TARGET) $(OBJECTS)
 
 # vim:ft=make:foldmethod=marker:foldmarker={{{,}}}
 
