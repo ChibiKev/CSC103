@@ -58,9 +58,21 @@ vector2& vector2::operator=(vector2 V)
 /* push back: */
 void vector2::push_back(int x) {
 	/* TODO: try to write this.  See the notes from lecture. */
+	if (size==capacity){
+		capacity*=2;
+		int* newdata= new int [capacity];
+		for (size_t i=0; i < size; i++){
+			newdata[i]=data[i];
+		}
+		delete [] data;
+		data= newdata;
+	}
+	data[size++] = x;
 }
 
 /* this should return the item we remove */
 int vector2::pop_back() {
 	/* TODO: try to write this. */
+	assert(size > 0);
+	return data[--size];
 }

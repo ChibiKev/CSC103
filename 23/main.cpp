@@ -1,4 +1,6 @@
 #include "vector2.h"
+#include <iostream>
+using namespace std;
 
 void fn(vector2 W) {
 	W.push_back(111);
