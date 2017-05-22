@@ -62,6 +62,7 @@ void sort(vector<int>&x)
  * {2,4,7}
  * */
 		/* TODO: write this. */
+#if 0
 set<int> intersect(const set<int>& S1, const set<int>& S2) {
 	set<int> change;
 	for (set<int>::iterator i=S1.begin(); i !=S1.end(); i++){
@@ -74,6 +75,17 @@ set<int> intersect(const set<int>& S1, const set<int>& S2) {
 	}
 		return change;
 }
+#else
+set<int> intersect(const set<int>& S1, const set<int>& S2) {
+	set<int> change;
+	for (set<int>::iterator i=S1.begin(); i !=S1.end(); i++){
+			if (S2.find(*i)!=S2.end()){
+				change.insert(*i);
+			}
+	}
+		return change;
+}
+#endif
 /* TODO: write a function that returns the union of two sets */
 set<int>combine(set<int>s1,set<int>s2)
 {
@@ -133,7 +145,7 @@ int main(void)
 	#if 0 //checks if 1-10 is a square
 	setTest();
 	#endif
-	#if 0 //prints out common factors in a set
+	#if 1 //prints out common factors in a set
 	intTest();
 	#endif
 	#if 0 //comine 2 sets
@@ -168,7 +180,7 @@ int main(void)
 		cout << v[i] << "  ";
 	}
 	#endif
-	#if 1 //remove a number inside vector
+	#if 0 //remove a number inside vector
 	vector <int> t;
 	int x;
 	int n;

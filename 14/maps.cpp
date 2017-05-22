@@ -50,7 +50,7 @@ int main() {
 #endif
 /* TODO: try to solve the same problem *WITHOUT* using maps!  Can you do
  * it with just vectors?  How about just sets?  */
- #if 1
+ #if 0
 	vector <string> words;
 	vector <string> uniquewords;
 	vector <int> break_index;
@@ -76,6 +76,23 @@ int main() {
 	for (size_t i=0; i!= uniquewords.size();++i){
 		cout << uniquewords[i] << " occurs " << wordcount[i] << " times " << endl;
 	}
+ #else
+ string input;
+ vector <string> wordlist;
+ cout << "enter the sentence to count words" << endl;
+ while (cin >> input) wordlist.push_back(input);
+ sort (wordlist.begin(), wordlist.end());
+ int count=0;
+ input=wordlist[0];
+ for (size_t i=0; i < wordlist.size(); i++){
+	 if (wordlist[i] != input) {
+		 cout << input << "\t" << count << endl;
+		 count=0;
+		 input=wordlist[i];
+	 }
+	 count++;
+ }
+ cout << input << "\t" << count << endl;
  #endif
 /* TODO: if you managed to solve the above, estimate the number of
  * instructions your program will require to run on an input of n strings.
