@@ -135,7 +135,7 @@ int main(void)
 	f(4);
 	cout << "\n";
 	#endif
-	#if 0 //factorial
+	#if 1 //factorial
 	int code;
 	cout << "insert factorial number" << endl;
 	cin >> code;
@@ -155,7 +155,7 @@ int main(void)
 	cin >> number;
 	cout << fibonacci(number) << endl;
 	#endif
-	#if 1 //sorting
+	#if 0 //sorting
 	vector <int> sorting;
 	int n;
 	while (cin >> n){

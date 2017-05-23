@@ -125,7 +125,7 @@ vector<int> remove (vector<int>v,int x){
 		}
 	}
 		return update;
-	}
+}
 
 void intTest() {
 	set<int> s1 = {2,3,4,5,6,7};

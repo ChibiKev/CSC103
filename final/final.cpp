@@ -45,6 +45,26 @@ set<int>combine(set<int>s1,set<int>s2) //Combining sets
 	return add;
 }
 
+int setinsert(vector<int> v, int x) //Check if something is found
+{
+	bool find=true;
+	for (vector<int>::iterator i=v.begin(); i!=v.end();i++){
+			if (*i==x){
+				find= false;
+		}
+	}
+	return find;
+}
+
+vector<int> remove (vector<int>v,int x){ //Remove value in vector
+	vector<int>update;
+	for (vector<int>::iterator i= v.begin(); i < v.end(); i++){
+		if (*i!=x){
+			update.push_back(*i);
+		}
+	}
+		return update;
+}
 //Maps
 void frequency (){ //Prints out "value (sorted) : number of times occured"
 	string s;
