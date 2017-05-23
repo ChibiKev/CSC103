@@ -46,13 +46,12 @@ void setTest() {
 void sort(vector<int>&x)
 	{
 		set<int> s;
-		vector <int> k;
-		for (vector<int>::iterator i=x.begin(); i != x.end(); i++)
-			{s.insert(*i);}
-		for (set<int>::iterator i=s.begin(); i!=s.end(); i++){
-			k.push_back(*i);
+		for (vector<int>::iterator i=x.begin(); i != x.end(); i++){
+			s.insert(*i);
 		}
-	x=k;
+		for (set<int>::iterator i=s.begin(); i!=s.end(); i++){
+			x.push_back(*i);
+		}
 	}
 
 /* exercise: compute the intersection of two sets:
@@ -145,7 +144,7 @@ int main(void)
 	#if 0 //checks if 1-10 is a square
 	setTest();
 	#endif
-	#if 1 //prints out common factors in a set
+	#if 0 //prints out common factors in a set
 	intTest();
 	#endif
 	#if 0 //comine 2 sets
@@ -156,7 +155,7 @@ int main(void)
 		cout << *i <<endl;
 	}
 	#endif
-	#if 0 //vector to set to vector
+	#if 1 //vector to set to vector
 	vector<int> x;
 	int y;
 	while (cin >> y && y >= 0){
