@@ -15,8 +15,8 @@ How I wrote it:
 using namespace std;
 
 void box (int x, int y){
-    for (int count=1; count <= y; count++){
-        if (count==1 || count==y){
+    for (int count=1; count <= x; count++){
+        if (count==1 || count==x){
             for (int i=1; i <= y; i++){
             cout << "* ";
             }
@@ -36,7 +36,7 @@ void box (int x, int y){
 }
 int main()
 {
-  box(5,5);
+  box(6,4);
   return 0;
 }
 
