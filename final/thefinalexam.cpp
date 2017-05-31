@@ -9,6 +9,37 @@ creates:
 *       *
 * * * * *
 
+How I wrote it:
+#include <iostream>
+#include <string>
+using namespace std;
+
+void box (int x, int y){
+    for (int count=1; count <= y; count++){
+        if (count==1 || count==y){
+            for (int i=1; i <= y; i++){
+            cout << "* ";
+            }
+        }
+        else if (count != x && count != 1){
+            for (int i=1; i<=y; i++){
+                if (i==1 || i==y){
+                    cout << "* ";
+                }
+                else {
+                    cout << "  ";
+                }
+            }
+        }
+        cout << endl;
+    }
+}
+int main()
+{
+  box(5,5);
+  return 0;
+}
+
 Question 2- 8 Points
 
 Write a function that takes in a string and a character and pushes the character to the back
