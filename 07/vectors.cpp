@@ -16,25 +16,27 @@ using std::vector;
  * especially for the vector.  (By value, reference, const reference?) */
 #if 0
 int f(vector<int> n, int x){
-int find=x;
+	int find=x;
 	for (size_t i=0; i < n.size()-1; i++){
 		if (find==n[i])
-return true;
-}
+			return true;
+	}
 }
 int main(){
 	int y;
 	int x;
 	vector <int> t;
 	cout << "What are you looking for?" << endl;
-	cin  >> x;
+	cin >> x;
 	cout << "what are the values?" << endl;
 	while (cin >> y) {
 		t.push_back(y);
 	}
 	for (size_t i=0; i< t.size()-1; i++){
-	cout << f(t,x) << endl;
+		cout << f(t,x) << endl;
 	}
+	return 0;
+}
 #endif
 	/* TODO: read list of integers and print in reverse order.  (There
 	 * is a solution outlined in the notes -- use a vector). */
@@ -47,12 +49,12 @@ int main (){
 	int n;
 	vector <int> v;
 	while (cin>>n){
-	v.push_back(n);
-}
+		v.push_back(n);
+	}
 	for (int i=v.size()-1; i>=0;i--)
 	cout << v[i] << endl;
 #endif
-	#if 1 //work on this
+#if 1 //work on this
 	/* TODO: figure out what is wrong with this version.  Note that we
 	 * never use push back, but access elements directly. */
 int main(){
@@ -63,11 +65,11 @@ int main(){
 		v[count] = s;
 		count++;
 	}
-	/* NOTE: the above will compile, but it will break at *runtime* even
-	 * on relatively small inputs.  For a hint, see capacity-test.cpp.  */
-	#endif
 	return 0;
 }
+	/* NOTE: the above will compile, but it will break at *runtime* even
+	 * on relatively small inputs.  For a hint, see capacity-test.cpp.  */
+#endif
 
 /* TODO: write a *binary search* on a sorted vector.  The idea is to
  * kind of emulate the process you use to find a particular page in a book:

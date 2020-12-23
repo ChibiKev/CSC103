@@ -12,8 +12,7 @@ vector2::vector2(size_t initCapacity) {
 	data = new int[capacity];
 }
 
-vector2::vector2(const vector2& V)
-{
+vector2::vector2(const vector2& V){
 	/* Goal: make *this a copy of V. */
 	size = V.size; /* copy size */
 	capacity = V.capacity; /* copy capacity */
@@ -39,8 +38,7 @@ vector2::~vector2() {
  * copy constructor to do most of the work.  TODO: see if you can
  * explain what is going on below / why it works.  We'll go through it
  * in detail next class. */
-vector2& vector2::operator=(vector2 V)
-{
+vector2& vector2::operator=(vector2 V){
 	int* tmp = data;
 	data = V.data;
 	V.data = tmp;

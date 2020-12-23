@@ -89,17 +89,17 @@ int main()
 		i = i+1; /* shorthand: i++ */
 	}
 	cout << "i == " << i << "\n"; /* prints 10, not 9! */
-#endif
- #if 0
- int x,n;
- cin >> x;
- n=x;
- while (cin >> x) {
-	 if (n > x)
-		 n=x;
- }
-	 cout << "min:" << n << endl;
-#endif
+	#endif
+ 	#if 0
+ 	int x,n;
+ 	cin >> x;
+ 	n=x;
+ 	while (cin >> x) {
+	 	if (n > x)
+		 	n=x;
+ 	}
+	cout << "min:" << n << endl;
+	#endif
 	/* general form:
 	 * while (<boolean expression>) {
 	 *    statements to do while expression is true...
@@ -116,31 +116,31 @@ int main()
 	 * <hit ctrl-d>
 	 * min == 1
 	 * */
-#if 0
-int x,n;
-cin >> x;
-n=x;
-while (cin >> x) {
-	n+=x;
-}
+	#if 0
+	int x,n;
+	cin >> x;
+	n=x;
+	while (cin >> x) {
+		n+=x;
+	}
 	cout << "sum=" << n << endl;
-#endif
-/* TODO: read integers from stdin, and print their sum.  See above
-	 * for how to read ints from stdin (use a while(cin >> n) thing). */
-int n,x;
-int count=0;
-cin >> n;
-x=n;
-while (n%2==0){
-	n/=2;
-	count++;
-}
-if (n==1) {
-	cout << "2**" << count << "=" << x <<endl;
-}
-else{
-	cout << "Invalid" << endl;
-}
+	#endif
+	/* TODO: read integers from stdin, and print their sum.  See above
+	* for how to read ints from stdin (use a while(cin >> n) thing). */
+	int n,x;
+	int count=0;
+	cin >> n;
+	x=n;
+	while (n%2==0){
+		n/=2;
+		count++;
+	}
+	if (n==1) {
+		cout << "2**" << count << "=" << x <<endl;
+	}
+	else{
+		cout << "Invalid" << endl;
+	}
 	/* TODO: given an integer n, find exponent of the largest power of two that
 	 * divides n.  Example: if n = r*8 with r odd, then you should output 3
 	 * since 8 = 2^3.  (You are just recovering the exponent of the 2 in the

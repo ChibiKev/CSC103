@@ -72,22 +72,21 @@ set<int> intersect(const set<int>& S1, const set<int>& S2) {
 			}
 		}
 	}
-		return change;
+	return change;
 }
 #else
 set<int> intersect(const set<int>& S1, const set<int>& S2) {
 	set<int> change;
 	for (set<int>::iterator i=S1.begin(); i !=S1.end(); i++){
-			if (S2.find(*i)!=S2.end()){
-				change.insert(*i);
-			}
+		if (S2.find(*i)!=S2.end()){
+			change.insert(*i);
+		}
 	}
-		return change;
+	return change;
 }
 #endif
 /* TODO: write a function that returns the union of two sets */
-set<int>combine(set<int>s1,set<int>s2)
-{
+set<int>combine(set<int>s1,set<int>s2){
 	set<int>add;
 	for (set<int>::iterator i=s1.begin(); i!=s1.end();i++){
 		add.insert(*i);
@@ -102,8 +101,7 @@ set<int>combine(set<int>s1,set<int>s2)
  * and a single integer x, and adds x to the vector *only if it was
  * not already present*. You can return a boolean indicating whether
  * or not x insertion took place. */
-int setinsert(vector<int> v, int x)
-{
+int setinsert(vector<int> v, int x){
 	bool find=true;
 	for (vector<int>::iterator i=v.begin(); i!=v.end();i++){
 			if (*i==x){
@@ -123,7 +121,7 @@ vector<int> remove (vector<int>v,int x){
 			update.push_back(*i);
 		}
 	}
-		return update;
+	return update;
 }
 
 void intTest() {
@@ -162,17 +160,17 @@ int main(void)
 		x.push_back(y);
 	}
 	sort(x);
-	for (size_t i=0; i < x.size();i++)
-		{cout << x[i] << endl;}
+	for (size_t i=0; i < x.size();i++){
+		cout << x[i] << endl;
+	}
 	#endif
 	#if 0//insert in stuff and not take duplicates
 	vector<int> v;
 	int x;
 	while(cin >> x){
-	if (setinsert(v,x))
-	{
-		v.push_back(x);
-	}
+		if (setinsert(v,x)){
+			v.push_back(x);
+		}
 	}
 	cout << "the elements inside the vectors are: ";
 	for (size_t i=0; i<v.size();i++){

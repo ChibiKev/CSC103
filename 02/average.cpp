@@ -29,9 +29,6 @@ int main()
 	 * and do so *ONLY USING TWO VARIABLES TOTAL*. */
 
 	cout << "Your average is " << b/5 << "\n";
-
-
-
 	return 0;
 }
 

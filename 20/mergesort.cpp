@@ -7,8 +7,7 @@ using std::vector;
 /* TODO: try to reproduce this entire thing on your own. */
 
 /* merge two sorted arrays into one */
-void merge(vector<int>& A, size_t low, size_t mid, size_t high)
-{
+void merge(vector<int>& A, size_t low, size_t mid, size_t high){
 	/* our job here: given that A[low..mid] and A[mid+1..high]
 	 * are sorted, fill A[low..high] with their contents in
 	 * sorted order.  IDEA: keep in mind that thing with the
@@ -42,12 +41,12 @@ void merge(vector<int>& A, size_t low, size_t mid, size_t high)
   }
   else {
     for (size_t x=l; x<=mid; x++){
-    merged.push_back(A[x]);
+    	merged.push_back(A[x]);
     }
   }
   #endif
   for (size_t i= low; i <= high; i++) {
-  A[i]=merged[i-low];
+  	A[i]=merged[i-low];
   }
 }
 
@@ -78,8 +77,7 @@ void mergeSort(vector<int>& A, size_t low, size_t high)
 	#endif
 }
 
-int main(void)
-{
+int main(void){
 	#if 1
 	vector<int> A= {2, 1, 4, 3, 9,6,7,5,8};
 	#else

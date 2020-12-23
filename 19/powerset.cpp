@@ -14,8 +14,7 @@ using std::set;
 typedef vector<int>::iterator vi;
 typedef vector<vector<int> >::iterator vvi;
 
-vector<vector<int> > powerSet(vector<int>& S)
-{
+vector<vector<int> > powerSet(vector<int>& S){
 	/* base case: S is empty: */
 	if (S.size() == 0) {
 		/* Return a vector containing the empty vector.  We'll use
@@ -59,8 +58,7 @@ vector<vector<int> > powerSet(vector<int>& S)
  * a little confusing...  We'll go through this next class, but one command
  * in gdb that will be useful is 'bt' which prints the call stack. */
 
-int main()
-{
+int main(){
 	/* run a test: */
 	vector<int> S = {1,2,3};
 	vector<vector<int> > P = powerSet(S);

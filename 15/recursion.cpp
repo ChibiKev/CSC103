@@ -60,18 +60,18 @@ int fibonacci(int number){
 vector <int> sort(vector<int> &v){
 	if (v.size()<2){
 		return v;
-		}
+	}
 	else {
 	vector <int> vleft;
 	vector <int> vright;
-		for (size_t i=0; i < v.size(); i++){
-			if (i < v.size()/2){
-				vleft.push_back(v[i]);
-			}
-			else {
-				vright.push_back(v[i]);
-			}
+	for (size_t i=0; i < v.size(); i++){
+		if (i < v.size()/2){
+			vleft.push_back(v[i]);
 		}
+		else {
+			vright.push_back(v[i]);
+		}
+	}
 	sort(vleft);
 	sort(vright);
 	vector <int> sorted;
@@ -95,42 +95,41 @@ vector <int> sort(vector<int> &v){
 }
 #else
 void Merge(vector<int> & vec, vector<int> & v1, vector<int> & v2) {
-    int n1 = v1.size();
-    int n2 = v2.size();
-    int p1 = 0;
-    int p2 = 0;
-    while (p1 < n1 && p2 < n2) {
-        if (v1[p1] < v2[p2]) {
-            vec.push_back(v1[p1++]);
-        } else {
-        vec.push_back(v2[p2++]);
-        }
-    }
-    while (p1 < n1) vec.push_back(v1[p1++]);
-    while (p2 < n2) vec.push_back(v2[p2++]);
+	int n1 = v1.size();
+	int n2 = v2.size();
+	int p1 = 0;
+	int p2 = 0;
+	while (p1 < n1 && p2 < n2) {
+		if (v1[p1] < v2[p2]) {
+			vec.push_back(v1[p1++]);
+		} else {
+		vec.push_back(v2[p2++]);
+		}
+	}
+	while (p1 < n1) vec.push_back(v1[p1++]);
+	while (p2 < n2) vec.push_back(v2[p2++]);
 }
 
 void Sort(vector<int> & vec) {
-    int n = vec.size();
-    if (n <= 1) return;
-    vector<int> v1;
-    vector<int> v2;
-    for (int i = 0; i < n; i++) {
-        if (i < n / 2) {
-            v1.push_back(vec[i]);
-        } else {
-        v2.push_back(vec[i]);
-        }
-    }
-    Sort(v1);
-    Sort(v2);
-    vec.clear();
-    Merge(vec, v1, v2);
+	int n = vec.size();
+	if (n <= 1) return;
+	vector<int> v1;
+	vector<int> v2;
+	for (int i = 0; i < n; i++) {
+		if (i < n / 2) {
+			v1.push_back(vec[i]);
+		} else {
+			v2.push_back(vec[i]);
+		}
+	}
+	Sort(v1);
+	Sort(v2);
+	vec.clear();
+	Merge(vec, v1, v2);
 }
 #endif
 
-int main(void)
-{
+int main(void) {
 	#if 0 //output of numbers
 	f(4);
 	cout << "\n";

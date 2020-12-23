@@ -7,8 +7,7 @@ using std::swap;
 // #define NDEBUG 1
 /* then the assert() will disappear from the compiler input */
 
-vector2::vector2(size_t initCapacity)
-{
+vector2::vector2(size_t initCapacity){
 	/* set vector to be empty, with initial capacity of initCapacity */
 	size = 0;
 	capacity = initCapacity;
@@ -22,8 +21,7 @@ vector2::vector2(size_t initCapacity)
  * vector2 W(V);
  * NOTE: W will be a synonym for *this when the C.C. is called.
  * */
-vector2::vector2(const vector2& V)
-{
+vector2::vector2(const vector2& V){
 	/* Goal: make *this a copy of V. */
 	size = V.size; /* copy size */
 	capacity = V.capacity; /* copy capacity */
@@ -81,8 +79,7 @@ vector2& vector2::operator=(const vector2& RHS) {
  * ...
  * V = W; //<-- calls assignment operator.
  * */
-vector2& vector2::operator=(vector2 V)
-{
+vector2& vector2::operator=(vector2 V){
 	/* swap data pointers of *this and V: */
 	swap(data,V.data);
 	/* copy size and capacity from V */

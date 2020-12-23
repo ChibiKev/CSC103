@@ -9,8 +9,7 @@ using std::vector;
  * and try to explain it to a friend, or your cat (or an inanimate object
  * if none of the above seem to in the mood for conversation). */
 
-vector<vector<int> > perms(vector<int> V)
-{
+vector<vector<int> > perms(vector<int> V){
 	/* base case: one element: */
 	if (V.size() == 1) return vector<vector<int> >(1,V);
 	/* NOTE: this just says return [V] (a new vector with *V itself*
@@ -54,8 +53,7 @@ vector<vector<int> > perms(vector<int> V)
 	return R;
 }
 
-int main()
-{
+int main(){
 	/* TODO: test this out more.  Here's some sample output from mine:
 	 * $ echo {0..2} | ./perms
 	 * 1 2 0

@@ -143,31 +143,30 @@ char* p2 = &c;
  * allocate the same, fixed amount of storage.  No vectors.  No additional
  * arrays.  Just a few integers.  Try it!  (Kind of hard though.)
  * */
- #if 0
- const int sizek=5;
- int array[sizek];
- for (size_t i=0; i < sizek; i++){
-  int p;
-	cin >> p;
- array[i]=p;
- }
+#if 0
+	const int sizek=5;
+	int array[sizek];
+	for (size_t i=0; i < sizek; i++){
+  	int p;
+		cin >> p;
+ 		array[i]=p;
+ 	}
  	int value;
 	cout << "How much do you want it to move by?" << endl;
 	cin >> value;
 	cout << "Each term will be moved over by " << value << endl;
 	int da =value;
- while (da < sizek) {
-	 cout << array[da] << " ";
-	 da++;
- }
- for (size_t i=0; i < value; i++) {
-	 cout << array [i] << " ";
- }
- cout << endl;
-
- void shift (int* A, size_t x, size_t y)
+ 	while (da < sizek) {
+		cout << array[da] << " ";
+		da++;
+ 	}
+ 	for (size_t i=0; i < value; i++) {
+		cout << array [i] << " ";
+ 	}
+ 	cout << endl;
+ 	void shift (int* A, size_t x, size_t y)
 #endif
-return 0;
+	return 0;
 }
 void swapd(int* &d1, int* &d2){
 	int* d3;

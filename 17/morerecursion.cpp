@@ -23,8 +23,7 @@ void printvertical(int x){
 }
 /* TODO: write code to compute the greatest common divisor of two integers
  * Do this with recursion -- no loops!  */
-int gcd(int a, int b)
-{
+int gcd(int a, int b){
 	if (b==0) {
 		return a;
 	}
@@ -36,8 +35,7 @@ int gcd(int a, int b)
  * also sets u and v such that ua + vb = gcd(a,b) Warning: this might take a
  * little bit of thinking (if you don't just look up the answer online).  Save
  * it for last. */
-int xgcd(int a, int b, int& u, int& v)
-{
+int xgcd(int a, int b, int& u, int& v){
 	if (a==0){
 		u=0;
 		v=1;
@@ -50,8 +48,7 @@ int xgcd(int a, int b, int& u, int& v)
 	return z;
 }
 
-void gcdTest()
-{
+void gcdTest(){
 	// TODO: modify this to test your *extended* gcd algorithm,
 	// once you've written it, that is.
 	int a,b,d,x,y;
@@ -66,8 +63,7 @@ void gcdTest()
 	}
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv){
 	gcdTest();
 	return 0;
 }

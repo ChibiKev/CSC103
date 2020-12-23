@@ -53,13 +53,11 @@ int hornerEval(const vector <int> &a, int x)
  * There are n choices for the first element, n-1 for the second, and so on.
  * */
 #if 0
-void randPerm(int* A, size_t n)
-{
+void randPerm(int* A, size_t n){
 srand(time(0));
 	int index;
 	int temp;
-	for (size_t i=0; i < n; i++)
-	{
+	for (size_t i=0; i < n; i++){
 		index= rand() % (n-i)+i;
 		temp= A[i];
 		A[i]=A[index];
@@ -70,8 +68,7 @@ srand(time(0));
 void randPerm(int* A, size_t n)
 {
 srand(time(0));
-	for (size_t i=n-1; i > 0; i--)
-	{
+	for (size_t i=n-1; i > 0; i--){
 		int k= rand() % (i+1);
 		int temp= A[i];
 		A[i]=A[k];

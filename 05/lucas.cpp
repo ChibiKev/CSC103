@@ -20,13 +20,13 @@ int main()
 	int n,i=1;
 	cin >> n;
 	int oneb4=1, twob4=0, current=1;
-while(i<n){
-	i++;
-	twob4=oneb4;
-	oneb4=current;
-	current=oneb4-twob4;
-}
-cout<<current<<endl;
+	while(i<n){
+		i++;
+		twob4=oneb4;
+		oneb4=current;
+		current=oneb4-twob4;
+	}
+	cout<<current<<endl;
 	return 0;
 }
 
@@ -38,10 +38,10 @@ cin >> n;
 int onebefore=2,twobefore=3, current=14;
 int i=2;
 while (i<n) {
-i++;
-twobefore=onebefore;
-onebefore=current;
-current=5*onebefore+2*twobefore-i;
+	i++;
+	twobefore=onebefore;
+	onebefore=current;
+	current=5*onebefore+2*twobefore-i;
 }
 cout << current << endl;
 return 0;

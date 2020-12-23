@@ -27,8 +27,7 @@ void test() {
 	 * to use that pattern... */
 }
 
-int main(void)
-{
+int main(void){
 #if 1
 	test();
 #else

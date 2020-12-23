@@ -3,8 +3,7 @@ using std::cin;
 using std::cout;
 #include <cstdio>
 
-int main()
-{
+int main(){
 	/* dynamically allocate an int: */
 	int* p = new int; /* this integer will NOT be on the runtime stack. */
 	/* what is the 'new'??  The new operator does the following:

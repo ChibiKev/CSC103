@@ -46,7 +46,7 @@ while (cin >> n){
 		n/=2;
 	else
 		n=(n*3)+1;
-}
+	}
 cout << count << endl;
 }
 #endif

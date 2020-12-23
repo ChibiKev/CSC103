@@ -79,7 +79,7 @@ bool search(int* A, int size, int x)
 			L[i]=A[i];
 		}
 		for(size_t i=0;i < mid;i++){
-				R[i]=A[mid+1+i];
+			R[i]=A[mid+1+i];
 		}
 		if (x< A[mid]){
 			blah= (int) search (L,mid,x);
@@ -122,8 +122,7 @@ bool search(int* A, int size, int x)
 #endif
 }
 
-int main()
-{
+int main(){
 	f(4);
 	/* TODO: write test code for your functions. */
 	printVertically(2358);

@@ -55,8 +55,7 @@ int test2(int& x) {
 	return 0;
 }
 
-int main()
-{
+int main() {
 	int y = 0;
 	test1(y); /* NOTE: this is how you call functions.  It should remind you
 	                   a lot of calculus. */
@@ -68,113 +67,125 @@ int main()
 #endif
 /* TODO: write a function that takes 3 integers and returns
  * the maximal value */
- #if 0
-
- int f(int x, int y, int z) {
+#if 0
+int f(int x, int y, int z) {
   if (x>y){
-   if (x>z)
-    return x;
-   else if (z>x)
-    return z;
+    if (x>z)
+      return x;
+    else if (z>x)
+      return z;
   }
-  else if (y>x){
-   if (y>z)
-    return y;
-   else if (y<z)
-    return z;
+  else if (y>x) {
+    if (y>z)
+      return y;
+    else if (y<z)
+      return z;
   }
-  }
-  int main(){
-  int x,y,z;
-   cin >> x;
-  cin >> y;
-  cin >> z;
-   cout << f(x,y,z) <<endl;
-  #endif
-/* TODO: write a function that takes 3 doubles and returns the average value.
- * also write code in main to test it.  */
- #if 0
-double f(double x, double y, double z){
-return (x+y+z)/3;
 }
 int main(){
-int x,y,z;
-cin >> x;
-cin >> y;
-cin >> z;
-cout << "average= " << f(x,y,z) <<endl;
- #endif
+  int x,y,z;
+  cin >> x;
+  cin >> y;
+  cin >> z;
+  cout << f(x,y,z) <<endl;
+  return 0;
+#endif
+/* TODO: write a function that takes 3 doubles and returns the average value.
+ * also write code in main to test it.  */
+#if 0
+double f(double x, double y, double z){
+  return (x+y+z)/3;
+}
+int main(){
+  int x,y,z;
+  cin >> x;
+  cin >> y;
+  cin >> z;
+  cout << "average= " << f(x,y,z) <<endl;
+  return 0;
+}
+#endif
 /* TODO: write a function that takes two integer parameters and swaps the
  * contents, i.e., if x=2 and y=5, then after calling swap(x,y), y=2 and x=5
  * Also write test code in main! */
- #if 0
- int f(int x, int y){
+#if 0
+int f(int x, int y){
   x=y;
   return x;
- }
-  int s(int x,int y){
+}
+int s(int x,int y){
   y=x;
   return y;
- }
- int main(){
+}
+int main(){
   int x,y;
   cin >> x;
   cin >> y;
   cout << "x" << "=" << f(x,y) << endl;
   cout << "y" << "=" << s(x,y) << endl;
- #endif
+  return 0;
+}
+#endif
 
- #if 1
- void swap (int &x, int &y){
+#if 1
+void swap (int &x, int &y){
   int z=x;
   x=y;
   y=z;
- }
- int main(){
+}
+int main(){
   int x,y;
   cin >> x;
   cin >> y;
   swap(x,y);
   cout << "x is now " << x <<endl;
   cout << "y is now " << y << endl;
- #endif
+  return 0;
+}
+#endif
 /* TODO: write an isPrime function that takes an integer and returns a boolean
  * value indicating whether or not it is prime.  */
 #if 0
 bool isPrime(int n){
- int count=0;
- for (int x=n-1; x > 1; x--)
-  if (n%x==0){
-  count++;}
- if (count>0 || n==1)
- return false;
- else
- return true;
+  int count=0;
+  for (int x=n-1; x > 1; x--)
+    if (n%x==0){
+      count++;
+    }
+    if (count>0 || n==1)
+      return false;
+    else
+      return true;
 }
 int main(){
-int n;
- while(cin >> n)
-cout << n << " is " << isPrime(n) << endl;
+  int n;
+  while(cin >> n){
+    cout << n << " is " << isPrime(n) << endl;
+  }
+  return 0;
+}
 #endif
 /* TODO: write a function that takes an integer n and returns the
  * nth term in the Fibonacci sequence. */
 #if 0
 int f(int n){
-int start=0;
-int y=1;
-int count=0;
-int next=0;
-for (cin >> n;n>count;count++){
-	next=start+y;
-	start=y;
-	y=next;
-}
-return start;
+  int start=0;
+  int y=1;
+  int count=0;
+  int next=0;
+  for (cin >> n;n>count;count++){
+    next=start+y;
+    start=y;
+    y=next;
+  }
+  return start;
 }
 int main(){
  int n;
  cin >> n
  cout << n << " in the Fibonacci sequence is " << f(n) << endl;
+ return 0;
+}
 #endif
 
 /* TODO: (WARNING: THIS IS NOT EASY. Only attempt this if you are bored.)
@@ -186,5 +197,3 @@ int main(){
  * log(n) steps!  To find it, you'll probably need a hint or two to even get
  * started.  Ask me if you're interested.
  * */
-return 0;
-}
